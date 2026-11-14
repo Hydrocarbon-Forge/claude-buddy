@@ -1,7 +1,7 @@
 {
   "name": "claude-buddy",
   "productName": "Claude Buddy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A little Claude buddy who runs around your screen and answers your prompts.",
   "author": "Claude Buddy",
   "homepage": "https://claude.com/claude-code",
