@@ -26,7 +26,7 @@ Click him to chat · drag him around · dress him up · Mac, Windows and Linux</
 </p>
 <p align="center">
 <img alt="lines of code: ~2,000" src="https://img.shields.io/badge/lines_of_code-~2,000-informational">
-<img alt="asset files: zero" src="https://img.shields.io/badge/image_%26_sound_files-zero-informational">
+<img alt="sound files: zero" src="https://img.shields.io/badge/sound_files-zero-informational">
 <img alt="repo size" src="https://img.shields.io/github/repo-size/Hydrocarbon-Forge/claude-buddy">
 <img alt="last commit" src="https://img.shields.io/github/last-commit/Hydrocarbon-Forge/claude-buddy">
 <img alt="stars" src="https://img.shields.io/github/stars/Hydrocarbon-Forge/claude-buddy?style=social">
@@ -53,10 +53,10 @@ Claude Buddy is a little Claude who wanders around on top of your desktop. Click
 - 🏃 **Roams your screen:** he walks, runs, waves, looks around and naps.
 - 🖱️ **Follow-cursor mode:** he trots after your mouse and stops right beside it.
 - ✋ **Drag him** anywhere, even onto another monitor.
-- 🔊 **Claude noises:** soft made-up voice sounds (a curious "hm?", a cheerful "hi!", "whoa!" when picked up, babble while he answers, little snores).
-- 🪟 **Above or behind windows:** keep him on top of everything, or let your windows cover him.
-- 👻 **Stays out of your way:** clicks pass straight through everywhere except him and his bubble.
-- 🚪 **Not a background app:** quit from his right-click menu, the tray/menu-bar icon, or Cmd+Q / Ctrl+Q.
+- 🔊 **Claude noises:** soft made-up voice sounds: a curious "hm?" when you close the chat by clicking him, a cheerful "hi!" when he waves, "whoa!" when picked up, "oof" when put down, "hmmm" when you send a message, a "ding" when an answer lands while the chat is closed, idle chirps, babble while he answers, and little snores.
+- 🪟 **Above or behind windows:** keep him on top of your other windows, or let them cover him.
+- 👻 **Stays out of your way:** clicks pass straight through everywhere except him and his bubble (not on Linux; see Notes).
+- 🚪 **Not a background app:** quit from his right-click menu or the tray/menu-bar icon. On a Mac, Cmd+Q also works.
 
 <br clear="right">
 
@@ -67,7 +67,7 @@ Grab the latest from **[Releases](https://github.com/Hydrocarbon-Forge/claude-bu
 | Computer | File | First time you open it |
 |---|---|---|
 | Mac (Apple Silicon) | `Claude-Buddy-…-mac-arm64.dmg` | Right-click the app → **Open** (it isn't code-signed) |
-| Windows (x64 and ARM) | `Claude-Buddy-…-windows-setup.exe` | If SmartScreen warns: **More info** → **Run anyway** |
+| Windows | `Claude-Buddy-…-windows-setup.exe` | If SmartScreen warns: **More info** → **Run anyway** |
 | Linux x64 | `Claude-Buddy-…-linux-x64.AppImage` | `chmod +x` the file, then run it |
 | Linux ARM | `Claude-Buddy-…-linux-arm64.AppImage` | Same as above |
 
@@ -79,6 +79,8 @@ claude
 
 If you can chat with Claude in your terminal, your buddy can too. No API key required.
 
+On Windows, Claude Code also needs [Git for Windows](https://git-scm.com).
+
 ## Customize him
 
 <img src="docs/customize.png" alt="The Customize window with name, color, hat, accessory, size, speed, behavior, window layer and noise settings" width="260" align="right">
@@ -87,21 +89,21 @@ Right-click him and choose **Customize…** Every change shows up live.
 
 - **Name**, used in his bubble and in how he introduces himself
 - **Color**: 10 presets or any color you like
-- **Hat**: party hat, crown, wizard, top hat, beanie, cowboy
+- **Hat**: none, party hat, crown, wizard, top hat, beanie, cowboy
 - **Accessory**: sunglasses, bow tie, scarf, flower
-- **Size**: tiny to huge
+- **Size**: tiny to giant
 - **Speed**: snail to zoomy
 - **Behavior**: run around, follow cursor, stay put, sleepy
-- **Window**: above or behind your other windows
+- **Window**: stay above your other windows, or behave like a normal window that they can cover
 - **Noises**: on or off, volume, and a squeaky, normal or deep voice
 
-His right-click menu also has **Nap time**, **Come here!**, **Follow my cursor**, **New conversation** and **Quit**.
+His right-click menu also has **Talk to**, **Nap time / Wake up**, **Come here!**, **Follow my cursor**, **Stay above other windows**, **Noises**, **New conversation** and **Quit**.
 
 <br clear="right">
 
 ## Run from source
 
-You need Node.js 18 or newer.
+You only need Node.js to run from source or build installers.
 
 ```bash
 git clone https://github.com/Hydrocarbon-Forge/claude-buddy.git
@@ -152,12 +154,22 @@ npx electron scripts/shots.js
 | Customize | [`renderer/settings.js`](renderer/settings.js) | The settings window with a live preview |
 | Icon | [`scripts/make-icon.js`](scripts/make-icon.js) | Builds the app icon from the sprite with a hand-written PNG encoder |
 
-Your prompts go to the `claude` command on your own computer, with its tools turned off and running in its own empty folder. He chats; he doesn't touch your files.
+Your prompts go to the `claude` command on your own computer, with its tools turned off and running in its own chat folder inside the app's data folder. He chats; he doesn't touch your files.
 
-### Notes
+### Chat, limits and troubleshooting
+
+- **Memory:** a conversation remembers earlier messages until you choose **New chat** (in the bubble, or in the right-click menu) or quit. Nothing is saved to disk.
+- **One question at a time:** asking something new cancels the reply that's still coming in.
+- **Time limit:** if a reply takes longer than three minutes, he stops and asks you to try again.
+- **"I can't find Claude Code":** install Claude Code, run `claude` once in a terminal to sign in, then try again.
+- **Settings file:** your choices are saved to a `settings.json` inside the app's data folder, so they survive restarts.
+- **Second launch:** opening Claude Buddy while it's already running brings him home to the bottom of the screen.
+- **Lost him?** Right-click the tray or menu-bar icon and choose **Come here!**
+
+## Notes
 
 - **Linux:** the see-through window needs a desktop compositor, which most desktops have. Linux can't pass clicks through windows, so the small box around him stays clickable. On Wayland he runs through XWayland so he can move his own window.
-- **Windows:** if Claude Code was installed with npm, he finds it automatically.
+- **Windows:** if Claude Code was installed with npm, he finds it automatically. Claude Code also needs Git for Windows.
 
 ## License
 
