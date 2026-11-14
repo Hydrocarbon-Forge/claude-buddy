@@ -4,6 +4,41 @@
 Click him to chat · drag him around · dress him up · Mac, Windows and Linux</p>
 
 <p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/issues?q=is%3Aclosed"><img alt="closed issues" src="https://img.shields.io/github/issues-closed/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/pulls?q=is%3Apr+is%3Aclosed"><img alt="closed pull requests" src="https://img.shields.io/github/issues-pr-closed/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy#readme"><img alt="README" src="https://img.shields.io/badge/README-present-2ea44f?logo=readme&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/search?l=javascript"><img alt="language: JavaScript" src="https://img.shields.io/badge/JavaScript-language-F7DF1E?logo=javascript&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/search?l=html"><img alt="language: HTML" src="https://img.shields.io/badge/HTML-language-E34F26?logo=html5&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/search?l=css"><img alt="language: CSS" src="https://img.shields.io/badge/CSS-language-1572B6?logo=css3&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/blob/main/package.json"><img alt="stack: Node.js" src="https://img.shields.io/badge/Node.js-in_repo-339933?logo=nodedotjs&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains Markdown" src="https://img.shields.io/badge/Markdown-files-000000?logo=markdown&logoColor=white"></a>
+</p>
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains JSON" src="https://img.shields.io/badge/JSON-files-000000?logo=json&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains PNG" src="https://img.shields.io/badge/PNG-files-0A7BBB"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains gitignore" src="https://img.shields.io/badge/gitignore-files-F05032?logo=git&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains HTML" src="https://img.shields.io/badge/HTML-files-E34F26?logo=html5&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains CSS" src="https://img.shields.io/badge/CSS-files-1572B6?logo=css3&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="contains JavaScript" src="https://img.shields.io/badge/JavaScript-files-F7DF1E?logo=javascript&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/ai-companion"><img alt="topic: ai-companion" src="https://img.shields.io/badge/ai--companion-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/anthropic"><img alt="topic: anthropic" src="https://img.shields.io/badge/anthropic-topic-0969da"></a>
+</p>
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/claude"><img alt="topic: claude" src="https://img.shields.io/badge/claude-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/claude-code"><img alt="topic: claude-code" src="https://img.shields.io/badge/claude--code-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/cross-platform"><img alt="topic: cross-platform" src="https://img.shields.io/badge/cross--platform-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/desktop-buddy"><img alt="topic: desktop-buddy" src="https://img.shields.io/badge/desktop--buddy-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/desktop-pet"><img alt="topic: desktop-pet" src="https://img.shields.io/badge/desktop--pet-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/electron"><img alt="topic: electron" src="https://img.shields.io/badge/electron-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/javascript"><img alt="topic: javascript" src="https://img.shields.io/badge/javascript-topic-0969da"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/topics/pixel-art"><img alt="topic: pixel-art" src="https://img.shields.io/badge/pixel--art-topic-0969da"></a>
+</p>
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="Git" src="https://img.shields.io/badge/Git-version_control-F05032?logo=git&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-hosted-181717?logo=github&logoColor=white"></a>
+</p>
+
+<p align="center">
 <a href="https://github.com/Hydrocarbon-Forge/claude-buddy/forks"><img alt="forks" src="https://img.shields.io/github/forks/Hydrocarbon-Forge/claude-buddy?style=social"></a>
 <a href="https://github.com/Hydrocarbon-Forge/claude-buddy/watchers"><img alt="watchers" src="https://img.shields.io/github/watchers/Hydrocarbon-Forge/claude-buddy?style=social"></a>
 <a href="https://github.com/Hydrocarbon-Forge/claude-buddy/issues"><img alt="open issues" src="https://img.shields.io/github/issues/Hydrocarbon-Forge/claude-buddy"></a>
