@@ -123,6 +123,13 @@ Click him to chat · drag him around · dress him up · Mac, Windows and Linux</
 <a href="https://github.com/Hydrocarbon-Forge/mod-factory"><img alt="more: mod-factory" src="https://img.shields.io/badge/repo-mod--factory-24292F?logo=github&logoColor=white"></a>
 </p>
 
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/commits"><img alt="commits list" src="https://img.shields.io/badge/commits-history-F05032?logo=github&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/branches"><img alt="branches" src="https://img.shields.io/badge/browse-branches-24292F?logo=github&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/tags"><img alt="tags" src="https://img.shields.io/badge/browse-tags-24292F?logo=github&logoColor=white"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/issues"><img alt="issues list" src="https://img.shields.io/badge/browse-issues-D73A49?logo=github&logoColor=white"></a>
+</p>
+
 ## What he does
 
 <img src="docs/chat.png" alt="Claude Buddy in a party hat answering 'Who are you?' in his speech bubble" width="300" align="right">
