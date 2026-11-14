@@ -50,22 +50,28 @@
     const s = scale();
     return { w: GRID_W * s + 48, h: spriteH() + 44 };
   }
+  // On Mac and Windows his window never changes size (resizing a see-through window
+  // briefly shows him in the wrong place); the empty parts let clicks through.
+  // Linux can't pass clicks through, so there the window shrinks to fit him.
+  const FIXED = api.platform !== 'linux';
   function frameSize() {
     const c = compactSize();
+    if (FIXED) return { w: Math.max(c.w, BW + 24), h: Math.min(wa.height, spriteH() + 2 * BH + 64) };
     if (!st.open) return c;
     return { w: Math.max(c.w, BW + 24), h: spriteH() + 30 + BH };
   }
   function clampBuddy() {
     const c = compactSize();
-    const f = frameSize();
+    const minH = FIXED ? c.h : frameSize().h;
     st.fx = Math.min(Math.max(st.fx, wa.x + c.w / 2), wa.x + wa.width - c.w / 2);
-    st.fy = Math.min(Math.max(st.fy, wa.y + f.h - 2), wa.y + wa.height - 2);
+    st.fy = Math.min(Math.max(st.fy, wa.y + minH - 2), wa.y + wa.height - 2);
   }
   function layout() {
     const f = frameSize();
     let x = st.fx - f.w / 2;
     x = Math.min(Math.max(x, wa.x), wa.x + wa.width - f.w);
-    const y = st.fy - f.h + 2;
+    let y = st.fy - f.h + 2;
+    if (FIXED) y = Math.min(Math.max(y, wa.y), wa.y + wa.height - f.h);
     const next = { x: Math.round(x), y: Math.round(y), w: Math.round(f.w), h: Math.round(f.h) };
     if (next.x !== win.x || next.y !== win.y || next.w !== win.w || next.h !== win.h) {
       const resized = next.w !== win.w || next.h !== win.h;
@@ -77,7 +83,11 @@
       const lx = st.fx - win.x;
       const ly = st.fy - win.y;
       const left = Math.min(Math.max(lx - BW / 2, 8), win.w - BW - 8);
-      const top = Math.max(4, ly - spriteH() - 16 - BH);
+      const aboveTop = ly - spriteH() - 16 - BH;
+      // Above his head when there's room, otherwise underneath him.
+      const below = aboveTop < 4 && ly + 18 + BH <= win.h;
+      const top = below ? ly + 18 : Math.max(4, aboveTop);
+      bubble.classList.toggle('below', below);
       bubble.style.left = left + 'px';
       bubble.style.top = top + 'px';
       tail.style.left = Math.min(Math.max(lx - left, 24), BW - 24) + 'px';
@@ -280,20 +290,27 @@
     }
     return null;
   }
-  function updateHover() {
-    if (!mouse) return;
-    const hit = drag ? 'sprite' : hitTest(mouse.x, mouse.y);
-    const now = !!hit;
-    if (now !== over) { over = now; api.setClickThrough(!over); }
-    canvas.className = drag && drag.moved ? 'grabbing' : hit === 'sprite' ? 'grab' : '';
-  }
-  window.addEventListener('mousemove', (e) => { mouse = { x: e.screenX, y: e.screenY }; updateHover(); });
+  // The main process watches the real cursor and makes the window clickable only
+  // over these areas, so it works even when he's behind other windows.
+  let lastHit = '';
   let pressed = false;
+  function updateHover() {
+    const rects = [spriteBox()];
+    if (st.open) {
+      const r = bubble.getBoundingClientRect();
+      rects.push({ x: r.left - 2, y: r.top - 14, w: r.width + 4, h: r.height + 28 });
+    }
+    const hit = { rects: rects.map((r) => ({ x: Math.round(r.x), y: Math.round(r.y), w: Math.round(r.w), h: Math.round(r.h) })), hold: !!drag || pressed };
+    const key = JSON.stringify(hit);
+    if (key !== lastHit) { lastHit = key; api.setHit(hit); }
+    const overSprite = mouse && hitTest(mouse.x, mouse.y) === 'sprite';
+    canvas.className = drag && drag.moved ? 'grabbing' : overSprite ? 'grab' : '';
+  }
+  window.addEventListener('mousemove', (e) => { mouse = { x: e.screenX, y: e.screenY }; });
   document.addEventListener('pointerdown', () => { pressed = true; }, true);
-  document.addEventListener('pointerup', () => { pressed = false; updateHover(); }, true);
-  const leave = () => { if (!drag && !pressed) { mouse = null; if (over) { over = false; api.setClickThrough(true); } } };
-  document.addEventListener('mouseleave', leave);
-  window.addEventListener('blur', () => { pressed = false; leave(); });
+  document.addEventListener('pointerup', () => { pressed = false; }, true);
+  document.addEventListener('mouseleave', () => { if (!drag && !pressed) mouse = null; });
+  window.addEventListener('blur', () => { pressed = false; });
 
   canvas.addEventListener('pointerdown', (e) => {
     if (e.button !== 0) return;

@@ -9,7 +9,7 @@ contextBridge.exposeInMainWorld('buddy', {
   workArea: (pt) => ipcRenderer.invoke('workArea', pt),
   cursor: () => ipcRenderer.invoke('cursor'),
   setBounds: (b) => ipcRenderer.send('win:bounds', b),
-  setClickThrough: (through) => ipcRenderer.send('win:clickThrough', through),
+  setHit: (hit) => ipcRenderer.send('win:hit', hit),
   focus: () => ipcRenderer.send('win:focus'),
   menu: () => ipcRenderer.send('menu'),
   onAction: (fn) => ipcRenderer.on('action', (_e, a) => fn(a)),

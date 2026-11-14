@@ -92,6 +92,7 @@ function createBuddyWindow() {
     minimizable: false,
     backgroundColor: '#00000000',
     title: 'Claude Buddy',
+    acceptFirstMouse: true, // first click on him counts even when another app is active
     webPreferences: {
       backgroundThrottling: false,
       preload: path.join(__dirname, 'preload.js'),
@@ -417,15 +418,28 @@ ipcMain.on('win:bounds', (_e, b) => {
   if (!buddyWin) return;
   buddyWin.setBounds({ x: Math.round(b.x), y: Math.round(b.y), width: Math.round(b.width), height: Math.round(b.height) });
 });
-ipcMain.on('win:clickThrough', (_e, through) => {
-  if (!buddyWin || isLinux) return;
-  if (through) buddyWin.setIgnoreMouseEvents(true, { forward: true });
-  else buddyWin.setIgnoreMouseEvents(false);
-});
+// Click-through: the window ignores the mouse except over the buddy and his bubble.
+// We watch the real cursor here (instead of relying on forwarded mouse moves),
+// so it keeps working when he's behind other windows or the app isn't active.
+let hitAreas = { rects: [], hold: false };
+let interactive = false;
+ipcMain.on('win:hit', (_e, hit) => { if (hit && Array.isArray(hit.rects)) hitAreas = hit; });
+function pollCursor() {
+  if (!buddyWin || buddyWin.isDestroyed() || isLinux) return;
+  const p = screen.getCursorScreenPoint();
+  const b = buddyWin.getBounds();
+  const x = p.x - b.x, y = p.y - b.y;
+  const inside = hitAreas.hold || hitAreas.rects.some((r) => x >= r.x && x <= r.x + r.w && y >= r.y && y <= r.y + r.h);
+  if (inside !== interactive) {
+    interactive = inside;
+    buddyWin.setIgnoreMouseEvents(!inside, { forward: true });
+  }
+}
 ipcMain.handle('cursor', () => screen.getCursorScreenPoint());
 ipcMain.on('win:focus', () => {
   if (!buddyWin) return;
   if (isMac) app.focus({ steal: true });
+  buddyWin.moveTop();
   buddyWin.focus();
 });
 ipcMain.on('menu', () => {
@@ -446,7 +460,7 @@ app.on('web-contents-created', (_e, wc) => {
 app.whenReady().then(() => {
   loadSettings();
   if (isMac && app.dock) app.dock.setIcon(buddyBitmap(28, 512, 1));
-  const start = () => { createBuddyWindow(); createTray(); };
+  const start = () => { createBuddyWindow(); createTray(); setInterval(pollCursor, 30); };
   // Linux compositors need a moment before transparent windows work reliably.
   if (isLinux) setTimeout(start, 400); else start();
   screen.on('display-metrics-changed', () => sendAction('screenChanged'));
