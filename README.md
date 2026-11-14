@@ -3,6 +3,20 @@
 <p align="center"><b>A tiny pixel-art Claude who lives on your screen, runs around, and answers your prompts.</b><br>
 Click him to chat · drag him around · dress him up · Mac, Windows and Linux</p>
 
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/forks"><img alt="forks" src="https://img.shields.io/github/forks/Hydrocarbon-Forge/claude-buddy?style=social"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/watchers"><img alt="watchers" src="https://img.shields.io/github/watchers/Hydrocarbon-Forge/claude-buddy?style=social"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/issues"><img alt="open issues" src="https://img.shields.io/github/issues/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/pulls"><img alt="open pull requests" src="https://img.shields.io/github/issues-pr/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/commits"><img alt="commits per year" src="https://img.shields.io/github/commit-activity/Hydrocarbon-Forge/claude-buddy/y"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/graphs/contributors"><img alt="contributors" src="https://img.shields.io/github/contributors/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="code size" src="https://img.shields.io/github/languages/code-size/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="top language" src="https://img.shields.io/github/languages/top/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy"><img alt="language count" src="https://img.shields.io/github/languages/count/Hydrocarbon-Forge/claude-buddy"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/releases"><img alt="latest release" src="https://img.shields.io/github/v/Hydrocarbon-Forge/claude-buddy?include_prereleases"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/github/license/Hydrocarbon-Forge/claude-buddy"></a>
+</p>
+
 <!-- badges:start -->
 <p align="center">
 <a href="https://github.com/Hydrocarbon-Forge/claude-buddy/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/Hydrocarbon-Forge/claude-buddy?color=d97757"></a>
