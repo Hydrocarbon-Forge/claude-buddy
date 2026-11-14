@@ -1,68 +1,164 @@
-# Claude Buddy
+<h1 align="center">Claude Buddy</h1>
 
-Claude Buddy is a tiny pixel-art Claude who lives on your desktop. He walks around your screen, and when you want to chat, click him and type. He sends your message to Claude Code, the same tool you may already use in a terminal, and answers right in a speech bubble.
+<p align="center"><b>A tiny pixel-art Claude who lives on your screen, runs around, and answers your prompts.</b><br>
+Click him to chat · drag him around · dress him up · Mac, Windows and Linux</p>
 
-There is no API key to set up. Claude Buddy uses the copy of Claude Code already installed on your computer.
+<!-- badges:start -->
+<p align="center">
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/Hydrocarbon-Forge/claude-buddy?color=d97757"></a>
+<a href="https://github.com/Hydrocarbon-Forge/claude-buddy/releases"><img alt="downloads" src="https://img.shields.io/github/downloads/Hydrocarbon-Forge/claude-buddy/total?color=d97757"></a>
+<a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-blue"></a>
+<img alt="API key: not needed" src="https://img.shields.io/badge/API_key-not_needed-brightgreen">
+</p>
+<p align="center">
+<img alt="macOS" src="https://img.shields.io/badge/macOS-Apple_Silicon-lightgrey?logo=apple&logoColor=white">
+<img alt="Windows" src="https://img.shields.io/badge/Windows-x64_+_ARM-0078D6?logo=windows&logoColor=white">
+<img alt="Linux" src="https://img.shields.io/badge/Linux-AppImage-FCC624?logo=linux&logoColor=black">
+<img alt="Electron: 33" src="https://img.shields.io/badge/Electron-33-47848F?logo=electron&logoColor=white">
+<img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-no_framework-F7DF1E?logo=javascript&logoColor=black">
+</p>
+<p align="center">
+<img alt="powered by: Claude Code" src="https://img.shields.io/badge/powered_by-Claude_Code-d97757">
+<img alt="built by: Claude Opus 5.5" src="https://img.shields.io/badge/built_by-Claude_Opus_5.5-d97757">
+<img alt="reviewed by: 15 Claude Haiku agents" src="https://img.shields.io/badge/reviewed_by-15_Claude_Haiku_agents-d97757">
+<img alt="art: hand-placed pixels" src="https://img.shields.io/badge/art-hand--placed_pixels-6f42c1">
+<img alt="sounds: synthesized live" src="https://img.shields.io/badge/sounds-synthesized_live-6f42c1">
+</p>
+<p align="center">
+<img alt="lines of code: ~2,000" src="https://img.shields.io/badge/lines_of_code-~2,000-informational">
+<img alt="asset files: zero" src="https://img.shields.io/badge/image_%26_sound_files-zero-informational">
+<img alt="repo size" src="https://img.shields.io/github/repo-size/Hydrocarbon-Forge/claude-buddy">
+<img alt="last commit" src="https://img.shields.io/github/last-commit/Hydrocarbon-Forge/claude-buddy">
+<img alt="stars" src="https://img.shields.io/github/stars/Hydrocarbon-Forge/claude-buddy?style=social">
+</p>
+<!-- badges:end -->
 
-## What you need
+<p align="center">
+<a href="#download">Download</a> ·
+<a href="#what-he-does">What he does</a> ·
+<a href="#customize-him">Customize</a> ·
+<a href="#run-from-source">Run from source</a> ·
+<a href="#how-it-works">How it works</a>
+</p>
 
-- Node.js 18 or newer
-- Claude Code installed, and signed in once. Open a terminal and run:
+<p align="center"><img src="docs/lineup.png" alt="Seven Claude Buddies in different colors and hats: plain, party hat, crown, wizard, top hat with sunglasses, cowboy, and a sleeping one in a beanie" width="860"></p>
+
+## What he does
+
+<img src="docs/chat.png" alt="Claude Buddy in a party hat answering 'Who are you?' in his speech bubble" width="300" align="right">
+
+Claude Buddy is a little Claude who wanders around on top of your desktop. Click him and a speech bubble pops up. Type anything and he answers, streaming the reply in with a little babble. Follow-up questions remember the conversation.
+
+- 💬 **Chat:** click him, type, press Enter. Shift+Enter makes a new line. Esc closes the bubble.
+- 🏃 **Roams your screen:** he walks, runs, waves, looks around and naps.
+- 🖱️ **Follow-cursor mode:** he trots after your mouse and stops right beside it.
+- ✋ **Drag him** anywhere, even onto another monitor.
+- 🔊 **Claude noises:** soft made-up voice sounds (a curious "hm?", a cheerful "hi!", "whoa!" when picked up, babble while he answers, little snores).
+- 🪟 **Above or behind windows:** keep him on top of everything, or let your windows cover him.
+- 👻 **Stays out of your way:** clicks pass straight through everywhere except him and his bubble.
+- 🚪 **Not a background app:** quit from his right-click menu, the tray/menu-bar icon, or Cmd+Q / Ctrl+Q.
+
+<br clear="right">
+
+## Download
+
+Grab the latest from **[Releases](https://github.com/Hydrocarbon-Forge/claude-buddy/releases/latest)**:
+
+| Computer | File | First time you open it |
+|---|---|---|
+| Mac (Apple Silicon) | `Claude-Buddy-…-mac-arm64.dmg` | Right-click the app → **Open** (it isn't code-signed) |
+| Windows (x64 and ARM) | `Claude-Buddy-…-windows-setup.exe` | If SmartScreen warns: **More info** → **Run anyway** |
+| Linux x64 | `Claude-Buddy-…-linux-x64.AppImage` | `chmod +x` the file, then run it |
+| Linux ARM | `Claude-Buddy-…-linux-arm64.AppImage` | Same as above |
+
+**He needs [Claude Code](https://claude.com/claude-code)** installed and signed in. Run this once in a terminal and follow the prompts:
 
 ```bash
 claude
 ```
 
-Follow the prompts to sign in, then you can close it. If you can chat with Claude in the terminal, Claude Buddy can too.
+If you can chat with Claude in your terminal, your buddy can too. No API key required.
 
-## Run it
+## Customize him
 
-From the `claude-buddy` folder, install the dependencies once:
+<img src="docs/customize.png" alt="The Customize window with name, color, hat, accessory, size, speed, behavior, window layer and noise settings" width="260" align="right">
+
+Right-click him and choose **Customize…** Every change shows up live.
+
+- **Name**, used in his bubble and in how he introduces himself
+- **Color**: 10 presets or any color you like
+- **Hat**: party hat, crown, wizard, top hat, beanie, cowboy
+- **Accessory**: sunglasses, bow tie, scarf, flower
+- **Size**: tiny to huge
+- **Speed**: snail to zoomy
+- **Behavior**: run around, follow cursor, stay put, sleepy
+- **Window**: above or behind your other windows
+- **Noises**: on or off, volume, and a squeaky, normal or deep voice
+
+His right-click menu also has **Nap time**, **Come here!**, **Follow my cursor**, **New conversation** and **Quit**.
+
+<br clear="right">
+
+## Run from source
+
+You need Node.js 18 or newer.
+
+```bash
+git clone https://github.com/Hydrocarbon-Forge/claude-buddy.git
+```
+
+```bash
+cd claude-buddy
+```
 
 ```bash
 npm install
 ```
 
-Then start the buddy:
-
 ```bash
 npm start
 ```
 
-## How to use it
+### Build the installers
 
-- **Chat:** Click him to open a speech bubble, then type and press Enter. Press Shift+Enter for a new line.
-- **Close the bubble:** Press Esc, or click the close button.
-- **Move him:** Click and drag him anywhere on the screen.
-- **Menu:** Right-click him to open the menu. From there you can Customize him (name, color, hat, accessory, size, speed, behavior, window layer, and noises), put him to nap, call him over with "Come here!", turn on Follow my cursor, switch Stay above other windows, toggle Noises, or start a New conversation.
-- **Follow cursor:** Pick "Follow cursor" as his behavior and he trots after your mouse, stopping just beside it.
-- **Above or behind windows:** "Above windows" keeps him on top of everything. "Behind windows" makes him a normal window, so your other windows cover him; click him to bring him forward.
-- **Claude noises:** He chirps, boops, babbles while he answers, snores when he naps, and dings when a reply finishes while his bubble is closed. Turn noises on or off, set the volume, and pick a Squeaky, Normal, or Deep voice.
-- **Quit:** Choose Quit from the right-click menu, from the tray or menu bar icon, or press Cmd+Q on Mac or Ctrl+Q on Windows and Linux.
-
-## Build an installer
-
-You can package Claude Buddy as a standalone app. Build on the operating system you are targeting, since each one makes its own kind of file. The result goes in the `dist/` folder.
-
-On a Mac, to make a `.dmg`:
+Output goes to `dist/`. electron-builder can cross-build, so all three work from a Mac.
 
 ```bash
 npm run dist:mac
 ```
 
-On Windows, to make an `.exe` installer:
-
 ```bash
 npm run dist:win
 ```
-
-On Linux, to make an `AppImage`:
 
 ```bash
 npm run dist:linux
 ```
 
-## Notes
+To regenerate the screenshots in `docs/`:
 
-- **Mac:** The app is not code-signed, so the first time you open it, right-click it and choose Open, then confirm. After that it opens normally.
-- **Linux:** Transparency needs a desktop compositor, which most modern desktops already have. On Linux, the small box around him stays clickable, so it can block clicks on whatever is directly behind him.
+```bash
+npx electron scripts/shots.js
+```
+
+## How it works
+
+| Piece | File | What it does |
+|---|---|---|
+| Main process | [`main.js`](main.js) | Transparent, frameless window; tray and menus; watches the cursor to switch click-through on and off; runs `claude -p` and streams the reply back |
+| Pixel art | [`sprite.js`](sprite.js) | Draws him rectangle by rectangle: 7 poses, 6 hats, 4 accessories, any color |
+| Buddy | [`renderer/buddy.js`](renderer/buddy.js) | Wandering, following, dragging, the chat bubble and the typewriter reply |
+| Voice | [`renderer/sound.js`](renderer/sound.js) | Web Audio voice: a buzzy tone through vowel filters, so every noise is made live |
+| Customize | [`renderer/settings.js`](renderer/settings.js) | The settings window with a live preview |
+| Icon | [`scripts/make-icon.js`](scripts/make-icon.js) | Builds the app icon from the sprite with a hand-written PNG encoder |
+
+Your prompts go to the `claude` command on your own computer, with its tools turned off and running in its own empty folder. He chats; he doesn't touch your files.
+
+### Notes
+
+- **Linux:** the see-through window needs a desktop compositor, which most desktops have. Linux can't pass clicks through windows, so the small box around him stays clickable. On Wayland he runs through XWayland so he can move his own window.
+- **Windows:** if Claude Code was installed with npm, he finds it automatically.
+
+## License
+
+[MIT](LICENSE). Claude Buddy is a fan-made toy and isn't affiliated with or endorsed by Anthropic.
