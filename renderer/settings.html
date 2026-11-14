@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Customize your buddy</title>
+  <style>
+    :root { --paper: #FAF6F1; --ink: #2B2420; --muted: #8A7F76; --line: #E8DFD5; --accent: #D97757; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 18px 20px 20px; background: var(--paper); color: var(--ink);
+      font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Ubuntu, Roboto, sans-serif;
+      user-select: none;
+      overflow-y: auto;
+    }
+    html, body { height: 100%; }
+    h1 { font-size: 17px; margin: 0 0 12px; }
+    .preview {
+      height: 150px; border: 2px solid var(--ink); border-radius: 14px; background: #fff;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+      background-image: radial-gradient(#EFE7DE 1px, transparent 1px); background-size: 12px 12px;
+    }
+    canvas { image-rendering: pixelated; }
+    label.row { display: block; margin: 12px 0 5px; font-weight: 600; }
+    label.row small { font-weight: 400; color: var(--muted); }
+    input[type=text] {
+      width: 100%; padding: 7px 9px; border: 1.5px solid var(--line); border-radius: 9px; font: inherit; background: #fff; outline: none;
+    }
+    input[type=text]:focus { border-color: var(--accent); }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 10px; cursor: pointer; font: inherit; color: var(--ink);
+    }
+    .chip.on { border-color: var(--ink); background: var(--ink); color: #fff; }
+    .swatches { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; }
+    .sw { width: 26px; height: 26px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0; outline: none; }
+    .sw.on { border-color: var(--ink); box-shadow: 0 0 0 2px #fff inset; }
+    input[type=color] { width: 30px; height: 28px; border: none; background: none; padding: 0; cursor: pointer; }
+    input[type=range] { width: 100%; accent-color: var(--accent); }
+    .check { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+    .foot { display: flex; justify-content: space-between; margin-top: 18px; }
+    .btn { border: 1.5px solid var(--ink); background: #fff; border-radius: 9px; padding: 6px 12px; cursor: pointer; font: inherit; }
+    .btn.primary { background: var(--ink); color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>Customize your buddy</h1>
+  <div class="preview"><canvas id="pv"></canvas></div>
+
+  <label class="row" for="name">Name</label>
+  <input id="name" type="text" maxlength="24" placeholder="Claude">
+
+  <label class="row">Color</label>
+  <div class="swatches" id="colors"></div>
+
+  <label class="row">Hat</label>
+  <div class="chips" id="hats"></div>
+
+  <label class="row">Accessory</label>
+  <div class="chips" id="accessories"></div>
+
+  <label class="row" for="size">Size <small id="sizeVal"></small></label>
+  <input id="size" type="range" min="3" max="9" step="1">
+
+  <label class="row" for="speed">Speed <small id="speedVal"></small></label>
+  <input id="speed" type="range" min="1" max="10" step="1">
+
+  <label class="row">Behavior</label>
+  <div class="chips" id="behaviors"></div>
+
+  <label class="row">Window</label>
+  <div class="chips" id="layers"></div>
+
+  <label class="row">Claude noises</label>
+  <div class="chips" id="sounds"></div>
+
+  <label class="row" for="volume">Volume <small id="volumeVal"></small></label>
+  <input id="volume" type="range" min="0" max="10" step="1">
+
+  <label class="row">Voice</label>
+  <div class="chips" id="voices"></div>
+
+  <div class="foot">
+    <button class="btn" id="reset">Reset</button>
+    <button class="btn primary" id="done">Done</button>
+  </div>
+
+  <script src="../sprite.js"></script>
+  <script src="sound.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Claude Buddy</title>
+  <link rel="stylesheet" href="buddy.css">
+</head>
+<body>
+  <canvas id="stage"></canvas>
+
+  <div id="bubble" class="hidden" role="dialog" aria-label="Chat with your buddy">
+    <div class="bubble-head">
+      <span id="buddyName">Claude</span>
+      <span class="head-buttons">
+        <button id="newChat" title="Start a new conversation">New chat</button>
+        <button id="closeBubble" title="Close (Esc)" aria-label="Close">×</button>
+      </span>
+    </div>
+    <div id="log"></div>
+    <form id="askForm">
+      <textarea id="prompt" rows="1" placeholder="Ask me anything…"></textarea>
+      <button id="send" type="submit" title="Send (Enter)" aria-label="Send">➤</button>
+    </form>
+    <div id="tail"></div>
+  </div>
+
+  <script src="../sprite.js"></script>
+  <script src="sound.js"></script>
+  <script src="buddy.js"></script>
+</body>
+</html>
